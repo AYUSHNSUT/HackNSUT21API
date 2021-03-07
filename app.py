@@ -15,7 +15,7 @@ def respond():
     rawList = []
 
     for item in receivedDict:
-        rawList.append(receivedDict[item])
+        rawList.append(float(receivedDict[item]))
 
     clf = pkl.load(open('covidmodel', 'rb'))
     inputVector = np.array(rawList)
@@ -35,7 +35,7 @@ def respond():
     return ans
 
 @app.route('/heart/', methods=['GET'])
-def respond():
+def respond_heart():
     # Retrieve the arguements from url parameter
     receivedDict = request.args
     # For debugging
@@ -44,7 +44,7 @@ def respond():
     rawList = []
 
     for item in receivedDict:
-        rawList.append(receivedDict[item])
+        rawList.append(float(receivedDict[item]))
 
     clf = pkl.load(open('heartmodel', 'rb'))
     inputVector = np.array(rawList)
