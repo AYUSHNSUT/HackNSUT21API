@@ -5,3 +5,4 @@ beautifulsoup4==4.9.3
 scikit_learn==0.24.1
 selenium==3.141.0
 gunicorn==19.9.0
+html5lib==1.1
