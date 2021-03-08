@@ -14,11 +14,12 @@ import numpy as np
 import sklearn
 import pickle as pkl
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 app = Flask(__name__)
+cors = CORS(app)
 
 
 @app.route('/medicine', methods=['GET'])
-@app.after_request
 def isabel():
     if request.method == 'GET':
         i = request.args.get("medicine_name")
@@ -69,7 +70,6 @@ def isabel():
 
 
 @app.route('/covid/', methods=['GET'])
-@app.after_request
 def respond():
     # Retrieve the arguements from url parameter
     receivedDict = request.args
@@ -99,7 +99,6 @@ def respond():
 
 
 @app.route('/heart/', methods=['GET'])
-@app.after_request
 def respond_heart():
     # Retrieve the arguements from url parameter
     receivedDict = request.args
@@ -130,7 +129,6 @@ def respond_heart():
 
 # A welcome message to test our server
 @app.route('/')
-@app.after_request
 def index():
     return "<h1>Welcome to our server !!</h1>"
 
